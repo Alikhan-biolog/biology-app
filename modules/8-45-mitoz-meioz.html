@@ -1,0 +1,457 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<a href="../index.html" style="position:fixed;right:12px;bottom:12px;z-index:50;background:#1C1A22;color:#fff;font:700 14px PT Sans,Arial,sans-serif;padding:10px 14px;border-radius:999px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">⌂ На главную</a>
+<title>Митоз и мейоз · §45</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Sans:wght@400;700&family=PT+Serif:wght@700&display=swap">
+<style>
+/* Layout: one reading column, sticky tab bar, sections switch in place; slide-glass ground, Giemsa-stain accent */
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --ink:#16202B; --muted:#4F5B68; --line:#D3D9E0;
+  --accent:#A3245E; --accent-soft:#F6E3EC; --good:#1E6B45; --good-soft:#E0F1E7; --bad:#A3361E; --bad-soft:#F8E4DE;
+  --warn:#7A5300; --warn-soft:#FBF0D6;
+  --f-display:"PT Serif",Georgia,"Times New Roman",serif;
+  --f-body:"PT Sans","Segoe UI",Arial,sans-serif;
+  --f-mono:"PT Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12171D; --surface:#1B232C; --ink:#E7ECF1; --muted:#A3AFBC; --line:#2F3A46;
+  --accent:#F07AAE; --accent-soft:#3A2030; --good:#7FD3A4; --good-soft:#18342A; --bad:#F4957D; --bad-soft:#3C221B;
+  --warn:#F1C66A; --warn-soft:#3A2F14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171D; --surface:#1B232C; --ink:#E7ECF1; --muted:#A3AFBC; --line:#2F3A46;
+  --accent:#F07AAE; --accent-soft:#3A2030; --good:#7FD3A4; --good-soft:#18342A; --bad:#F4957D; --bad-soft:#3C221B;
+  --warn:#F1C66A; --warn-soft:#3A2F14; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:28px 18px}
+.crumb{font-size:13px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+h1{font:700 clamp(30px,6vw,44px)/1.1 var(--f-display);margin:6px 0 10px;text-wrap:balance}
+h2{font:700 24px/1.2 var(--f-display);margin:0 0 12px;text-wrap:balance}
+h3{font-size:17px;margin:0 0 6px}
+.src{font-size:14px;color:var(--muted);max-width:65ch}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.lang button{border:0;background:transparent;color:var(--ink);font:700 14px var(--f-body);padding:8px 14px;min-height:40px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.draft{margin-top:14px;padding:10px 14px;border-radius:8px;background:var(--warn-soft);color:var(--warn);font-size:14px;max-width:65ch}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
+nav.tabs button{flex:0 0 auto;border:0;background:none;color:var(--muted);font:700 15px var(--f-body);padding:12px 12px;min-height:44px;cursor:pointer;border-bottom:3px solid transparent}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+main{padding-block:24px 48px}
+section{display:grid;gap:16px}
+section>*{min-width:0}
+[hidden]{display:none!important}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.points{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.points li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.points .n{font:700 14px var(--f-mono);color:var(--accent);padding-top:2px}
+.pg{font:13px var(--f-mono);color:var(--muted);white-space:nowrap}
+.flag{display:inline-block;font-size:12px;font-weight:700;padding:1px 7px;border-radius:5px;background:var(--warn-soft);color:var(--warn);margin-left:4px}
+.ctrl{display:flex;flex-wrap:wrap;gap:16px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--surface);color:var(--ink);font:15px var(--f-body);padding:8px 14px;min-height:42px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:block;margin-bottom:4px}
+.diagram{overflow-x:auto}
+.diagram svg{display:block;width:100%;min-width:520px;height:auto}
+.caption{font-size:14px;color:var(--muted)}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.fc{border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);text-align:left;padding:16px;min-height:150px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:8px}
+.fc .term{font:700 20px var(--f-display)}
+.fc .hint{font-size:13px;color:var(--muted);margin-top:auto}
+.fc[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fc .def{font-size:15px}
+.q{display:grid;gap:10px}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
+.qtext{font-weight:700;font-size:17px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;min-height:44px}
+.opt input{margin-top:4px;accent-color:var(--accent)}
+.opt.ok{border-color:var(--good);background:var(--good-soft)}
+.opt.no{border-color:var(--bad);background:var(--bad-soft)}
+select{font:15px var(--f-body);padding:6px 8px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-height:40px;max-width:100%}
+.match{display:grid;gap:8px}
+.match .mrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:10px;align-items:center}
+.order{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.order li{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:6px 8px 6px 12px}
+.order li span{flex:1;min-width:0}
+.order button,.btn{font:700 15px var(--f-body);border-radius:8px;cursor:pointer;min-height:44px}
+.order button{min-width:44px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn{border:0;background:var(--accent);color:#fff;padding:10px 18px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:default}
+.fb{border-radius:8px;padding:10px 12px;font-size:15px}
+.fb.ok{background:var(--good-soft);color:var(--good)}
+.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .why{color:var(--ink);display:block;margin-top:4px}
+.blank{display:inline-block;margin:2px 4px}
+.score{font:700 40px var(--f-mono);color:var(--accent);font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tbl{overflow-x:auto}
+th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.sev{font-weight:700;font-size:12px;white-space:nowrap}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+footer{font-size:13px;color:var(--muted);padding-block:0 32px}
+@media (prefers-reduced-motion:no-preference){.cell-anim{transition:transform .35s ease,opacity .35s ease}}
+@media (max-width:520px){.match .mrow{grid-template-columns:1fr}}
+</style>
+
+<header class="top wrap">
+  <div class="row" style="justify-content:space-between">
+    <div class="crumb" data-t="crumb"></div>
+    <div class="lang" role="group" aria-label="Язык / Тіл">
+      <button type="button" id="lang-ru" data-lang="ru">RU</button>
+      <button type="button" id="lang-kk" data-lang="kk">ҚАЗ</button>
+    </div>
+  </div>
+  <h1 data-t="title"></h1>
+  <p class="src" data-t="source"></p>
+  <p class="draft" data-t="draft"></p>
+</header>
+
+<nav class="tabs" aria-label="Разделы">
+  <div class="wrap" role="tablist">
+    <button role="tab" id="tab-notes" data-tab="notes" data-t="tNotes"></button>
+    <button role="tab" id="tab-scheme" data-tab="scheme" data-t="tScheme"></button>
+    <button role="tab" id="tab-cards" data-tab="cards" data-t="tCards"></button>
+    <button role="tab" id="tab-quiz" data-tab="quiz" data-t="tQuiz"></button>
+    <button role="tab" id="tab-teacher" data-tab="teacher" data-t="tTeacher"></button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="p-notes" role="tabpanel">
+    <div class="card"><h2 data-t="notesH"></h2><ol class="points" id="notes"></ol></div>
+  </section>
+
+  <section id="p-scheme" role="tabpanel" hidden>
+    <div class="card">
+      <h2 data-t="schemeH"></h2>
+      <div class="ctrl">
+        <div><span class="lbl" data-t="mother"></span><div class="seg" id="seg-n"></div></div>
+        <div><span class="lbl" data-t="process"></span><div class="seg" id="seg-p"></div></div>
+      </div>
+    </div>
+    <div class="card diagram"><svg id="svg" viewBox="0 0 720 300" role="img" aria-labelledby="svgcap"></svg></div>
+    <p class="caption" id="svgcap"></p>
+  </section>
+
+  <section id="p-cards" role="tabpanel" hidden>
+    <p class="caption" data-t="cardsHint"></p>
+    <div class="fc-grid" id="cards"></div>
+  </section>
+
+  <section id="p-quiz" role="tabpanel" hidden>
+    <div class="card row" style="justify-content:space-between">
+      <div><span class="lbl" data-t="progress"></span><span class="score" id="score">0/10</span></div>
+      <button class="btn ghost" type="button" id="reset" data-t="reset"></button>
+    </div>
+    <div id="quiz" style="display:grid;gap:16px"></div>
+    <div class="card" id="review" hidden></div>
+  </section>
+
+  <section id="p-teacher" role="tabpanel" hidden>
+    <div class="card">
+      <h2 data-t="teacherH"></h2>
+      <p class="src" data-t="teacherIntro"></p>
+      <div class="tbl"><table id="flags"></table></div>
+    </div>
+    <div class="card">
+      <h3 data-t="extSrcH"></h3>
+      <ul class="src" style="padding-left:18px;margin:0">
+        <li><a href="https://en.wikipedia.org/wiki/Alternation_of_generations" target="_blank" rel="noopener">Alternation of generations — Wikipedia</a></li>
+        <li><a href="https://bio.libretexts.org/Bookshelves/Botany/Botany_(Ha_Morrow_and_Algiers)/01:_Introduction_to_Botany/1.01:_Introduction/1.1.04:_Life_Cycles" target="_blank" rel="noopener">Life Cycles — LibreTexts, Botany (Ha, Morrow, Algiers)</a></li>
+        <li><a href="https://alloprof.qc.ca/en/students/vl/sciences/oogenesis-s1318" target="_blank" rel="noopener">Oogenesis — Alloprof</a></li>
+        <li><a href="https://palea.cgrb.oregonstate.edu/svn/plantontology/html/docs/development/pdfs/endosperm_costaTIPS2004.pdf" target="_blank" rel="noopener">Costa et al. Endosperm development — Trends in Plant Science, 2004 (PDF)</a></li>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4006710/" target="_blank" rel="noopener">Gene copy number variation in polyploid cells of the placenta — PLoS Genetics, 2014</a></li>
+      </ul>
+      <p class="caption" data-t="accessed"></p>
+    </div>
+  </section>
+</main>
+<footer class="wrap" data-t="footer"></footer>
+
+<script>
+(function(){
+const T={
+ ru:{crumb:"Биология · 8 класс · Раздел 10. Размножение · §45",title:"Митоз и мейоз",
+  source:"Источник: Соловьева А. Р., Ибраимова Б. Т. Биология. Учебник для 8 кл. Алматы: Атамұра, 2018. §45: с. 177–180 русского издания, с. 181–184 казахского.",
+  draft:"Черновик для проверки учителем. Конспект и задания составлены ИИ по тексту §45 и ещё не утверждены. Официальных заданий ЕНТ здесь нет.",
+  tNotes:"Конспект",tScheme:"Схема",tCards:"Карточки",tQuiz:"Тренировка",tTeacher:"Для учителя",
+  notesH:"Главное из параграфа",schemeH:"Сколько хромосом в дочерних клетках",mother:"Материнская клетка",process:"Деление",
+  mitosis:"Митоз",meiosis:"Мейоз",chr:"хромосом",cell:"клетка",
+  capMit:(n)=>`Митоз: из 1 клетки с ${n} хромосомами получаются 2 клетки, в каждой по ${n}. Набор не меняется (учебник, с. 177).`,
+  capMei:(n)=>`Мейоз: из 1 клетки с ${n} хромосомами получаются 4 клетки, в каждой по ${n/2}. Набор уменьшается вдвое (учебник, с. 177).`,
+  schemeNote:"Схема показывает только число хромосом. Стадии деления в §45 не рассматриваются.",
+  nOpts:{8:"8 — рисунок учебника",46:"46 — человек",50:"50 — пример учебника"},
+  cardsHint:"Нажмите на карточку, чтобы увидеть определение. Определения взяты из учебника; страница указана на карточке.",
+  front:"Показать определение",back:"Скрыть",
+  progress:"Верно с первой попытки",reset:"Начать заново",check:"Проверить",
+  correct:"Верно.",wrong:"Неверно.",page:"с.",origin:"ИИ · по §45",
+  types:{single:"Один ответ",multi:"Несколько ответов",match:"Соответствие",order:"Последовательность",fill:"Пропуски"},
+  up:"Выше",down:"Ниже",choose:"— выберите —",
+  reviewH:"Что повторить",reviewNone:"Ошибок нет. Тема закреплена.",reviewLine:"Вернитесь к пункту конспекта",
+  teacherH:"Замечания к источнику",
+  teacherIntro:"При разборе §45 найдены места, где учебник неточен, упрощает или где издания расходятся. Ни одно задание тренировки не построено на этих местах. Решение по каждому пункту принимает эксперт.",
+  thSev:"Тип",thWhere:"Где",thWhat:"Что в учебнике",thFix:"Как сейчас и что предлагается",
+  extSrcH:"Внешние источники для проверки",accessed:"Дата обращения: 19.10.2026. Внешние источники уточняют учебник, но не заменяют его.",
+  footer:"Модуль собран автоматически из текстового слоя PDF. Происхождение заданий: «сгенерировано ИИ». Статус: черновик."},
+ kk:{crumb:"Биология · 8-сынып · 10-бөлім. Көбею · §45",title:"Митоз және мейоз",
+  source:"Дереккөз: Соловьева А. Р., Ибраимова Б. Т. Биология. 8-сыныпқа арналған оқулық. Алматы: Атамұра, 2018. §45: қазақ тіліндегі басылымның 181–184-беттері, орыс тіліндегінің 177–180-беттері.",
+  draft:"Мұғалім тексеруіне арналған жоба. Қысқаша мазмұн мен тапсырмаларды §45 мәтіні бойынша ЖИ құрастырды, олар әлі бекітілмеген. Мұнда ҰБТ-ның ресми тапсырмалары жоқ.",
+  tNotes:"Қысқаша мазмұны",tScheme:"Сызба",tCards:"Карточкалар",tQuiz:"Жаттығу",tTeacher:"Мұғалімге",
+  notesH:"Параграфтың негізгі ойлары",schemeH:"Жас жасушаларда неше хромосома болады",mother:"Аналық жасуша",process:"Бөліну",
+  mitosis:"Митоз",meiosis:"Мейоз",chr:"хромосома",cell:"жасуша",
+  capMit:(n)=>`Митоз: ${n} хромосомасы бар 1 жасушадан әрқайсысында ${n} хромосомадан 2 жасуша түзіледі. Хромосома саны өзгермейді (оқулық, 181-б.).`,
+  capMei:(n)=>`Мейоз: ${n} хромосомасы бар 1 жасушадан әрқайсысында ${n/2} хромосомадан 4 жасуша түзіледі. Хромосома саны екі есе кемиді (оқулық, 181-б.).`,
+  schemeNote:"Сызба тек хромосома санын көрсетеді. Бөліну кезеңдері §45-те қарастырылмайды.",
+  nOpts:{8:"8 — оқулықтағы сурет",46:"46 — адам",50:"50 — оқулықтағы мысал"},
+  cardsHint:"Анықтаманы көру үшін карточканы басыңдар. Анықтамалар оқулықтан алынған, беті карточкада көрсетілген.",
+  front:"Анықтаманы көрсету",back:"Жасыру",
+  progress:"Бірінші әрекетте дұрыс",reset:"Қайта бастау",check:"Тексеру",
+  correct:"Дұрыс.",wrong:"Қате.",page:"б.",origin:"ЖИ · §45 бойынша",
+  types:{single:"Бір жауап",multi:"Бірнеше жауап",match:"Сәйкестендіру",order:"Реттілік",fill:"Бос орын"},
+  up:"Жоғары",down:"Төмен",choose:"— таңдаңдар —",
+  reviewH:"Нені қайталау керек",reviewNone:"Қате жоқ. Тақырып бекітілді.",reviewLine:"Қысқаша мазмұнның мына тармағына оралыңдар",
+  teacherH:"Дереккөзге ескертулер",
+  teacherIntro:"§45-ті талдағанда оқулықта дәл емес, тым жеңілдетілген немесе басылымдар бір-бірінен өзгеше жерлер табылды. Жаттығудағы бірде-бір тапсырма осы жерлерге құрылмаған. Әр тармақ бойынша шешімді сарапшы қабылдайды.",
+  thSev:"Түрі",thWhere:"Қай жерде",thWhat:"Оқулықта не жазылған",thFix:"Қазір не істелді және не ұсынылады",
+  extSrcH:"Тексеруге арналған сыртқы дереккөздер",accessed:"Қаралған күні: 19.10.2026. Сыртқы дереккөздер оқулықты нақтылайды, бірақ оны алмастырмайды.",
+  footer:"Модуль PDF мәтіндік қабатынан автоматты түрде жасалды. Тапсырмалардың шығу тегі: «ЖИ құрастырған». Мәртебесі: жоба."}
+};
+
+const NOTES=[
+ {ru:"Существуют 2 типа деления клеток: митоз и мейоз.",kk:"Жасуша бөлінуінің екі түрі бар: митоз және мейоз.",pr:"177",pk:"181"},
+ {ru:"Митоз: из 1 материнской клетки образуются 2 дочерние с таким же числом хромосом. Неважно, был набор гаплоидным или диплоидным.",kk:"Митоз: бір аналық жасушадан хромосома саны аналықпен бірдей екі жас жасуша түзіледі. Аналық жасуша гаплоидты ма, диплоидты ма, бәрібір.",pr:"177",pk:"181"},
+ {ru:"Мейоз: из 1 материнской клетки образуются 4 дочерние, набор хромосом уменьшается в 2 раза (2n → n). Пример: 50 хромосом → 4 клетки по 25.",kk:"Мейоз: бір аналық жасушадан 4 жас жасуша түзіледі, хромосома саны екі есе кемиді (2n → n). Мысал: 50 хромосома → 25-тен 4 жасуша.",pr:"177",pk:"181"},
+ {ru:"Митоз — основа бесполого размножения, роста и регенерации. У человека он постоянно идёт в клетках кожи, волос и ногтей, у растений — в образовательной ткани: кончики стебля и корня, камбий.",kk:"Митоз — жыныссыз көбеюдің, өсудің және регенерацияның негізі. Адамда тері, шаш және тырнақ жасушаларында үздіксіз жүреді, өсімдіктерде — түзуші ұлпада: сабақ пен тамырдың ұштары, камбий.",pr:"177",pk:"181–182"},
+ {ru:"Мейоз — основа полового размножения. У человека в клетках тела 46 хромосом, в половых клетках (гаметах) — 23. При оплодотворении в зиготе снова 46.",kk:"Мейоз — жыныстық көбеюдің негізі. Адамның дене жасушаларында 46 хромосома, жыныс жасушаларында (гаметаларда) — 23. Ұрықтанғанда зиготада қайтадан 46 болады.",pr:"178",pk:"182"},
+ {ru:"Гаплоидная клетка не может делиться мейозом: уменьшать набор хромосом дальше некуда.",kk:"Гаплоидты жасуша мейоз жолымен бөліне алмайды: хромосома санын одан әрі азайту мүмкін емес.",pr:"178",pk:"182"},
+ {ru:"Амитоз — деление, при котором хромосомы распределяются по дочерним клеткам неравно. Такие клетки не дают жизнеспособного потомства.",kk:"Амитоз — хромосомалар жас жасушаларға бірдей бөлінбейтін бөліну. Мұндай жасушалар тіршілікке қабілетті ұрпақ бермейді.",pr:"178",pk:"182",flag:true}
+];
+
+const CARDS=[
+ {t:{ru:"Митоз",kk:"Митоз"},d:{ru:"Деление, при котором из 1 материнской клетки образуются 2 дочерние с таким же набором хромосом.",kk:"Аналық жасушадан түзілген екі жас жасушаның хромосома саны өзгеріссіз сақталатын үдеріс."},pr:"177",pk:"181"},
+ {t:{ru:"Мейоз",kk:"Мейоз"},d:{ru:"Деление, при котором из 1 материнской клетки образуются 4 дочерние, а набор хромосом уменьшается в 2 раза.",kk:"Аналық жасушадан 4 жас жасушаның түзілу үдерісі; олардың хромосома саны екі есе кемиді."},pr:"177",pk:"181"},
+ {t:{ru:"Амитоз",kk:"Амитоз"},d:{ru:"Деление, похожее на митоз, но хромосомы распределяются по дочерним клеткам не поровну.",kk:"Митозға ұқсас бөліну, бірақ хромосомалар жас жасушаларға бірдей бөлінбейді."},pr:"178",pk:"182"},
+ {t:{ru:"Гаплоидный набор (n)",kk:"Гаплоидты жиынтық (n)"},d:{ru:"Одинарный набор хромосом. У человека он в половых клетках: 23 хромосомы.",kk:"Жыныс жасушаларындағы хромосома жиынтығы. Адамда — 23 хромосома."},pr:"178",pk:"182"},
+ {t:{ru:"Диплоидный набор (2n)",kk:"Диплоидты жиынтық (2n)"},d:{ru:"Двойной набор хромосом. У человека он в клетках тела: 46 хромосом.",kk:"Дене жасушаларындағы хромосома жиынтығы. Адамда — 46 хромосома."},pr:"178",pk:"182"},
+ {t:{ru:"Гамета",kk:"Гамета"},d:{ru:"Половая клетка с гаплоидным набором хромосом.",kk:"Гаплоидты хромосома жиынтығы бар жыныс жасушасы."},pr:"178",pk:"182"},
+ {t:{ru:"Зигота",kk:"Зигота"},d:{ru:"Оплодотворённая яйцеклетка — первая клетка любого многоклеточного зародыша.",kk:"Ұрықтанған жұмыртқа жасушасы — кез келген көпжасушалы ағза ұрығының алғашқы жасушасы."},pr:"178",pk:"182"},
+ {t:{ru:"Споры",kk:"Споралар"},d:{ru:"Клетки, которые у растений и большинства грибов образуются мейозом вместо гамет.",kk:"Өсімдіктерде және саңырауқұлақтарда мейоз жолымен гаметалардың орнына түзілетін жасушалар."},pr:"178",pk:"182"},
+ {t:{ru:"Партеногенез",kk:"Партеногенез"},d:{ru:"Развитие зародыша из неоплодотворённой яйцеклетки.",kk:"Ұрықтанбаған жұмыртқа жасушасынан ұрықтың дамуы."},pr:"181 (§46)",pk:"185 (§46)"}
+];
+
+const Q=[
+ {type:"single",note:1,pr:"177",pk:"181",
+  q:{ru:"Сколько дочерних клеток образуется из одной материнской клетки при митозе?",kk:"Митоз кезінде бір аналық жасушадан неше жас жасуша түзіледі?"},
+  o:{ru:["1","2","4","8"],kk:["1","2","4","8"]},a:1,
+  e:{ru:"При митозе из 1 материнской клетки образуются 2 дочерние с тем же набором хромосом.",kk:"Митоз кезінде бір аналық жасушадан хромосома саны бірдей екі жас жасуша түзіледі."}},
+ {type:"single",note:2,pr:"177",pk:"181",
+  q:{ru:"Клетка, вступившая в мейоз, содержит 50 хромосом. Сколько хромосом будет в каждой дочерней клетке?",kk:"Мейоз жолымен бөлінетін жасушада 50 хромосома бар. Әрбір жас жасушада неше хромосома болады?"},
+  o:{ru:["100","50","25","12"],kk:["100","50","25","12"]},a:2,
+  e:{ru:"При мейозе набор уменьшается в 2 раза: 50 : 2 = 25. Образуются 4 клетки по 25 хромосом.",kk:"Мейозда хромосома саны екі есе кемиді: 50 : 2 = 25. Әрқайсысында 25 хромосомадан 4 жасуша түзіледі."}},
+ {type:"single",note:4,pr:"178",pk:"182",
+  q:{ru:"В клетках тела человека 46 хромосом. Сколько хромосом в его половых клетках?",kk:"Адамның дене жасушаларында 46 хромосома бар. Оның жыныс жасушаларында неше хромосома болады?"},
+  o:{ru:["92","46","23","12"],kk:["92","46","23","12"]},a:2,
+  e:{ru:"Гаметы образуются мейозом и гаплоидны: 46 : 2 = 23.",kk:"Гаметалар мейоз арқылы түзіледі және гаплоидты: 46 : 2 = 23."}},
+ {type:"multi",note:3,pr:"177",pk:"181–182",
+  q:{ru:"Что обеспечивает митоз? Выберите все верные ответы.",kk:"Митоз нені қамтамасыз етеді? Барлық дұрыс жауапты таңдаңдар."},
+  o:{ru:["Рост организма","Регенерацию — восстановление повреждённых частей","Образование гамет у человека","Бесполое размножение одноклеточных эукариот"],
+     kk:["Ағзаның өсуін","Регенерацияны — зақымдалған бөліктердің қалпына келуін","Адамда гаметалардың түзілуін","Біржасушалы эукариоттардың жыныссыз көбеюін"]},a:[0,1,3],
+  e:{ru:"Митоз — основа роста, регенерации и бесполого размножения. Гаметы человека образуются мейозом.",kk:"Митоз — өсудің, регенерацияның және жыныссыз көбеюдің негізі. Адамның гаметалары мейоз арқылы түзіледі."}},
+ {type:"match",note:4,pr:"178",pk:"182",
+  q:{ru:"Соотнесите термин и определение.",kk:"Терминді анықтамасымен сәйкестендіріңдер."},
+  left:{ru:["Гамета","Зигота","Диплоидный набор","Гаплоидный набор"],kk:["Гамета","Зигота","Диплоидты жиынтық","Гаплоидты жиынтық"]},
+  right:{ru:["Половая клетка с гаплоидным набором хромосом","Оплодотворённая яйцеклетка, первая клетка зародыша","Двойной набор: у человека 46 хромосом в клетках тела","Одинарный набор: у человека 23 хромосомы в половых клетках"],
+         kk:["Гаплоидты хромосома жиынтығы бар жыныс жасушасы","Ұрықтанған жұмыртқа жасушасы, ұрықтың алғашқы жасушасы","Адамның дене жасушаларында 46 хромосома","Адамның жыныс жасушаларында 23 хромосома"]},
+  shuffle:[2,0,3,1],
+  e:{ru:"Гамета — половая клетка (n), зигота — результат оплодотворения (2n). У человека 2n = 46, n = 23.",kk:"Гамета — жыныс жасушасы (n), зигота — ұрықтану нәтижесі (2n). Адамда 2n = 46, n = 23."}},
+ {type:"order",note:4,pr:"178",pk:"182",
+  q:{ru:"Расставьте по порядку: как меняется число хромосом у человека от родителя к зародышу.",kk:"Ретімен орналастырыңдар: адамда хромосома саны ата-анадан ұрыққа дейін қалай өзгереді."},
+  items:{ru:["Клетка половой железы: 46 хромосом","Мейоз","Гаметы: по 23 хромосомы","Оплодотворение: слияние гамет","Зигота: 46 хромосом","Митоз: клетки зародыша по 46 хромосом"],
+         kk:["Жыныс безінің жасушасы: 46 хромосома","Мейоз","Гаметалар: 23 хромосомадан","Ұрықтану: гаметалардың қосылуы","Зигота: 46 хромосома","Митоз: ұрық жасушаларында 46 хромосомадан"]},
+  start:[4,1,5,0,3,2],
+  e:{ru:"Мейоз уменьшает набор вдвое (46 → 23), оплодотворение восстанавливает его (23 + 23 = 46), митоз сохраняет его в клетках зародыша.",kk:"Мейоз хромосома санын екі есе азайтады (46 → 23), ұрықтану оны қалпына келтіреді (23 + 23 = 46), митоз ұрық жасушаларында сақтайды."}},
+ {type:"fill",note:3,pr:"177–178",pk:"181–182",
+  q:{ru:["Митоз — основа ","%"," размножения, мейоз — основа ","%"," размножения."],kk:["Митоз — ","%"," көбеюдің негізі, мейоз — ","%"," көбеюдің негізі."]},
+  choices:{ru:["бесполого","полового"],kk:["жыныссыз","жыныстық"]},a:[0,1],
+  e:{ru:"Митоз даёт клетки тела и бесполое размножение, мейоз — гаметы для полового размножения.",kk:"Митоз дене жасушаларын түзеді және жыныссыз көбеюді қамтамасыз етеді, мейоз — жыныстық көбеюге қажет гаметаларды."}},
+ {type:"single",note:5,pr:"178",pk:"182",
+  q:{ru:"Почему гаплоидная клетка не может делиться мейозом?",kk:"Неліктен гаплоидты жасуша мейоз жолымен бөліне алмайды?"},
+  o:{ru:["Набор хромосом уже одинарный, уменьшить его вдвое нельзя","В гаплоидной клетке нет хромосом","Гаплоидные клетки вообще не делятся","Мейоз бывает только у растений"],
+     kk:["Хромосома санын одан әрі екі есе азайту мүмкін емес","Гаплоидты жасушада хромосома болмайды","Гаплоидты жасушалар мүлдем бөлінбейді","Мейоз тек өсімдіктерде жүреді"]},a:0,
+  e:{ru:"По учебнику, меньше одного набора хромосом быть не может. Гаплоидные клетки могут делиться митозом.",kk:"Оқулық бойынша хромосома жиынтығы біреуден кем болмайды. Гаплоидты жасушалар митоз жолымен бөліне алады."}},
+ {type:"single",note:4,pr:"178",pk:"182",
+  q:{ru:"Что такое зигота?",kk:"Зигота дегеніміз не?"},
+  o:{ru:["Оплодотворённая яйцеклетка — первая клетка зародыша","Половая клетка с гаплоидным набором","Клетка, образовавшаяся амитозом","Спора гриба"],
+     kk:["Ұрықтанған жұмыртқа жасушасы — ұрықтың алғашқы жасушасы","Гаплоидты жиынтығы бар жыныс жасушасы","Амитоз арқылы түзілген жасуша","Саңырауқұлақтың спорасы"]},a:0,
+  e:{ru:"Зигота образуется при слиянии гамет и содержит диплоидный набор.",kk:"Зигота гаметалар қосылғанда түзіледі, онда диплоидты жиынтық болады."}},
+ {type:"single",note:2,pr:"179",pk:"183",
+  q:{ru:"В клетках тела организма 8 хромосом. Сколько хромосом будет в каждой клетке после митоза и после мейоза?",kk:"Ағзаның дене жасушаларында 8 хромосома бар. Митоздан кейін және мейоздан кейін әр жасушада неше хромосома болады?"},
+  o:{ru:["8 и 4","4 и 8","8 и 8","16 и 4"],kk:["8 және 4","4 және 8","8 және 8","16 және 4"]},a:0,
+  e:{ru:"Митоз сохраняет число хромосом (8), мейоз уменьшает его вдвое (4). Задание составлено по № 4 рубрики «Применение» на с. 179.",kk:"Митоз хромосома санын сақтайды (8), мейоз екі есе азайтады (4). Тапсырма 183-беттегі «Қолданылуы» бөлімінің 4-тапсырмасы негізінде құрастырылды."}}
+];
+
+const FLAGS=[
+ {sev:{ru:"Научная неточность",kk:"Ғылыми дәлсіздік"},where:{ru:"рус. с. 178",kk:"орыс. 178-б."},
+  what:{ru:"«У всех многоклеточных животных, большинства одноклеточных и растений гаплоидные половые клетки – гаметы образуются мейозом».",kk:"Орыс басылымында: өсімдіктерде де гаметалар мейоз арқылы түзіледі делінген."},
+  fix:{ru:"У наземных растений мейозом образуются споры, а гаметы — митозом в гаметофите. В казахском издании (с. 182) растения в этой фразе не названы. Задания не утверждают, что гаметы растений образуются мейозом.",kk:"Құрлық өсімдіктерінде мейоз арқылы споралар түзіледі, ал гаметалар гаметофитте митоз арқылы түзіледі. Қазақ басылымында (182-б.) бұл сөйлемде өсімдіктер аталмаған. Тапсырмаларда өсімдік гаметалары мейоз арқылы түзіледі деп айтылмайды."}},
+ {sev:{ru:"Упрощение",kk:"Жеңілдету"},where:{ru:"рус. с. 178, каз. с. 182",kk:"орыс. 178-б., қаз. 182-б."},
+  what:{ru:"«При мейозе из 1 половой клетки появляются 4 гаплоидные гаметы».",kk:"«Жыныс бездерінің бір жасушасынан гаплоидты хромосомалы 4 гамета пайда болады»."},
+  fix:{ru:"Верно для образования сперматозоидов. При оогенезе образуется 1 яйцеклетка и полярные (направительные) тельца. Задания вида «сколько яйцеклеток…» не составлялись.",kk:"Сперматозоидтардың түзілуі үшін дұрыс. Оогенезде 1 жұмыртқа жасушасы және полярлық денешіктер түзіледі. «Неше жұмыртқа жасушасы…» деген тапсырмалар құрастырылмады."}},
+ {sev:{ru:"Спорный пример",kk:"Даулы мысал"},where:{ru:"рус. с. 178, каз. с. 182",kk:"орыс. 178-б., қаз. 182-б."},
+  what:{ru:"Амитозом, по учебнику, образуются эндосперм и клетки плаценты.",kk:"Оқулық бойынша амитоз арқылы эндосперм және плацента жасушалары түзіледі."},
+  fix:{ru:"Эндосперм обычно развивается из триплоидного центрального ядра митотическими делениями; крупные клетки плаценты становятся полиплоидными за счёт эндоредупликации. Нужна оценка эксперта. Примеры амитоза в задания не включены.",kk:"Эндосперм әдетте триплоидты орталық ядродан митоз арқылы дамиды; плацентаның ірі жасушалары эндоредупликация арқылы полиплоидты болады. Сарапшының бағасы қажет. Амитоз мысалдары тапсырмаларға енгізілмеді."}},
+ {sev:{ru:"Упрощение",kk:"Жеңілдету"},where:{ru:"рус. с. 177, каз. с. 181–182",kk:"орыс. 177-б., қаз. 181–182-б."},
+  what:{ru:"«В клетках мозга митоз происходит только до рождения».",kk:"«Мида митоз құбылысы туғанға дейін ғана жүреді»."},
+  fix:{ru:"Сами нейроны не делятся, но у взрослых в отдельных зонах мозга могут появляться новые нейроны из стволовых клеток; у человека этот вопрос обсуждается. Не проверено по внешнему источнику. В задания не включено.",kk:"Нейрондардың өзі бөлінбейді, бірақ ересектерде мидың кейбір аймақтарында бағаналы жасушалардан жаңа нейрондар пайда болуы мүмкін; адамда бұл мәселе талқыланып жүр. Сыртқы дереккөзбен тексерілмеді. Тапсырмаларға енгізілмеді."}},
+ {sev:{ru:"Неясность",kk:"Түсініксіз жер"},where:{ru:"рус. с. 178, каз. с. 182",kk:"орыс. 178-б., қаз. 182-б."},
+  what:{ru:"Сказано, что у организмов с гаплоидными клетками тела мейозом образуются споры, и сразу — что гаплоидные клетки не могут делиться мейозом.",kk:"Денесінің жасушалары гаплоидты ағзаларда мейоз арқылы споралар түзіледі делінеді де, бірден гаплоидты жасушалар мейоз арқылы бөліне алмайды делінеді."},
+  fix:{ru:"У таких организмов мейозом делится диплоидная зигота (зиготическая редукция; учебник упоминает её в задании «Оценка», № 2). Стоит добавить это пояснение в конспект после проверки.",kk:"Мұндай ағзаларда мейоз арқылы диплоидты зигота бөлінеді (зиготалық редукция; оқулық оны «Бағалау» бөлімінің 2-тапсырмасында атайды). Тексерілгеннен кейін бұл түсіндірмені қысқаша мазмұнға қосқан жөн."}},
+ {sev:{ru:"Расхождение изданий",kk:"Басылымдар айырмашылығы"},where:{ru:"рус. с. 178 / каз. с. 182",kk:"орыс. 178-б. / қаз. 182-б."},
+  what:{ru:"RU: «у некоторых растений и большинства грибов мейозом образуются … споры». KZ: «Көптеген өсімдіктерде және саңырауқұлақтарда» — «у многих растений и грибов».",kk:"RU: «кейбір өсімдіктерде және саңырауқұлақтардың көпшілігінде». KZ: «Көптеген өсімдіктерде және саңырауқұлақтарда»."},
+  fix:{ru:"Карточка «Споры» сформулирована без количественных слов, чтобы версии совпадали.",kk:"«Споралар» карточкасы екі нұсқа сәйкес келуі үшін сандық сөздерсіз жазылды."}},
+ {sev:{ru:"Опечатки",kk:"Қате теру"},where:{ru:"каз. с. 182",kk:"қаз. 182-б."},
+  what:{ru:"«аммитоз»; «Жынысты бөлінудің негізі – мейоз».",kk:"«аммитоз»; «Жынысты бөлінудің негізі – мейоз»."},
+  fix:{ru:"Нужно: «амитоз»; по смыслу «жыныстық көбеюдің негізі – мейоз». В модуле использованы исправленные формы.",kk:"Дұрысы: «амитоз»; мағынасы бойынша «жыныстық көбеюдің негізі – мейоз». Модульде түзетілген нұсқалар қолданылды."}}
+];
+
+let lang="ru", tab="notes", N=46, P="mit";
+const state=Q.map(()=>({done:false,ok:false,firstOk:null,sel:null}));
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const s0=store.get("m45-lang"); if(s0==="ru"||s0==="kk") lang=s0;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const L=()=>T[lang];
+const pg=(it)=>lang==="ru"?`${L().page} ${it.pr}`:`${it.pk}-${L().page}`;
+
+function renderStatic(){
+  document.documentElement.lang=lang==="ru"?"ru":"kk";
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=L()[el.dataset.t]; if(typeof v==="string") el.textContent=v;});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  $("#notes").innerHTML=NOTES.map((n,i)=>`<li id="note-${i}"><span class="n">${i+1}</span><span>${esc(n[lang])} <span class="pg">${pg(n)}</span>${n.flag?`<span class="flag">⚑ ${lang==="ru"?"см. «Для учителя»":"«Мұғалімге» қараңдар"}</span>`:""}</span></li>`).join("");
+  renderCards(); renderScheme(); renderQuiz(); renderFlags(); renderTabs();
+}
+function renderTabs(){
+  document.querySelectorAll("[role=tab]").forEach(b=>{const on=b.dataset.tab===tab;b.setAttribute("aria-selected",on);b.tabIndex=on?0:-1;});
+  ["notes","scheme","cards","quiz","teacher"].forEach(t=>{$("#p-"+t).hidden=t!==tab;});
+}
+function renderCards(){
+  $("#cards").innerHTML=CARDS.map((c,i)=>`<button type="button" class="fc" id="fc-${i}" aria-pressed="false"><span class="term">${esc(c.t[lang])}</span><span class="def" hidden>${esc(c.d[lang])} <span class="pg">${pg(c)}</span></span><span class="hint">${L().front}</span></button>`).join("");
+  document.querySelectorAll(".fc").forEach(b=>b.addEventListener("click",()=>{const on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on);b.querySelector(".def").hidden=!on;b.querySelector(".hint").textContent=on?L().back:L().front;}));
+}
+function seg(el,opts,cur,cb){
+  el.innerHTML=opts.map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${String(v)===String(cur)}">${esc(l)}</button>`).join("");
+  el.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>cb(b.dataset.v)));
+}
+function cellSVG(cx,cy,r,n,label,muted){
+  let g=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--surface)" stroke="${muted?"var(--line)":"var(--accent)"}" stroke-width="2.5"/>`;
+  if(n<=8){
+    const k=n, cols=Math.min(4,k), rows=Math.ceil(k/cols), w=8, h=r*0.42, gx=r*0.32;
+    for(let i=0;i<k;i++){const c=i%cols, rr=Math.floor(i/cols);
+      const x=cx-(cols-1)*gx/2+c*gx, y=cy-(rows-1)*(h+8)/2+rr*(h+8)-6;
+      g+=`<rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="4" fill="var(--accent)" transform="rotate(${(i*37)%40-20} ${x} ${y})"/>`;}
+  }else{
+    g+=`<text x="${cx}" y="${cy+4}" text-anchor="middle" font-family="PT Mono, monospace" font-size="${r*0.62}" fill="var(--accent)">${n}</text>`;
+  }
+  g+=`<text x="${cx}" y="${cy+r+22}" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="var(--muted)">${label}</text>`;
+  return g;
+}
+function renderScheme(){
+  seg($("#seg-n"),[[8,L().nOpts[8]],[46,L().nOpts[46]],[50,L().nOpts[50]]],N,v=>{N=+v;renderScheme();});
+  seg($("#seg-p"),[["mit",L().mitosis],["mei",L().meiosis]],P,v=>{P=v;renderScheme();});
+  const svg=$("#svg"); const d=P==="mit"?2:4, n=P==="mit"?N:N/2;
+  const tag=(x)=> P==="mit"? `2n = ${x}` : `n = ${x}`;
+  let g=cellSVG(110,140,62,N,`2n = ${N}`,false);
+  const xs=[480], ys=d===2?[80,210]:[50,120,190,260];
+  g+=`<text x="270" y="40" text-anchor="middle" font-family="PT Serif, serif" font-weight="700" font-size="20" fill="var(--ink)">${P==="mit"?L().mitosis:L().meiosis}</text>`;
+  const rr=d===2?46:30;
+  ys.forEach((y,i)=>{
+    g+=`<path d="M176 140 C 300 140, 330 ${y}, ${480-rr-16} ${y}" fill="none" stroke="var(--muted)" stroke-width="1.6" marker-end="url(#ar)"/>`;
+    g+=cellSVG(480,y-8,rr,n,"",false);
+    g+=`<text x="${480+rr+16}" y="${y-2}" font-family="PT Mono, monospace" font-size="15" fill="var(--ink)">${tag(n)}</text>`;
+  });
+  g=`<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs>`+g;
+  svg.setAttribute("viewBox", d===2?"0 0 720 290":"0 0 720 300");
+  svg.innerHTML=g;
+  $("#svgcap").textContent=(P==="mit"?L().capMit(N):L().capMei(N))+" "+L().schemeNote;
+}
+function qHTML(it,i){
+  const st=state[i], l=lang; let body="";
+  if(it.type==="single"||it.type==="multi"){
+    const t=it.type==="single"?"radio":"checkbox";
+    body=`<div class="opts">`+it.o[l].map((o,j)=>{let cls="";
+      if(st.done){const right=it.type==="single"?j===it.a:it.a.includes(j); const picked=(st.sel||[]).includes(j); if(right) cls="ok"; else if(picked) cls="no";}
+      return `<label class="opt ${cls}"><input type="${t}" name="q${i}" id="q${i}-${j}" value="${j}" ${st.sel&&st.sel.includes(j)?"checked":""} ${st.done?"disabled":""}><span>${esc(o)}</span></label>`;}).join("")+`</div>`;
+  }else if(it.type==="match"){
+    body=`<div class="match">`+it.left[l].map((lt,j)=>`<div class="mrow"><strong>${esc(lt)}</strong><select id="q${i}-${j}" ${st.done?"disabled":""}><option value="">${L().choose}</option>${it.shuffle.map(k=>`<option value="${k}" ${st.sel&&String(st.sel[j])===String(k)?"selected":""}>${esc(it.right[l][k])}</option>`).join("")}</select></div>`).join("")+`</div>`;
+  }else if(it.type==="order"){
+    const ord=st.sel||it.start.slice();
+    body=`<ol class="order">`+ord.map((k,p)=>`<li><span>${esc(it.items[l][k])}</span><button type="button" aria-label="${L().up}" data-q="${i}" data-p="${p}" data-d="-1" ${st.done||p===0?"disabled":""}>↑</button><button type="button" aria-label="${L().down}" data-q="${i}" data-p="${p}" data-d="1" ${st.done||p===ord.length-1?"disabled":""}>↓</button></li>`).join("")+`</ol>`;
+  }else if(it.type==="fill"){
+    let b=0; body=`<p class="qtext" style="font-weight:400">`+it.q[l].map(part=>{if(part!=="%") return esc(part); const k=b++;
+      return `<select class="blank" id="q${i}-${k}" ${st.done?"disabled":""}><option value="">…</option>${it.choices[l].map((c,j)=>`<option value="${j}" ${st.sel&&String(st.sel[k])===String(j)?"selected":""}>${esc(c)}</option>`).join("")}</select>`;}).join("")+`</p>`;
+  }
+  const qt=it.type==="fill"?"":`<div class="qtext">${esc(it.q[l])}</div>`;
+  const fb=st.done?`<div class="fb ${st.ok?"ok":"no"}">${st.ok?L().correct:L().wrong}<span class="why">${esc(it.e[l])} <span class="pg">${pg(it)}</span></span></div>`:`<div><button type="button" class="btn" data-check="${i}">${L().check}</button></div>`;
+  return `<article class="card q" id="qa-${i}"><div class="qhead"><span>${i+1} / ${Q.length} · ${L().types[it.type]}</span><span class="tag">${L().origin}</span></div>${qt}${body}${fb}</article>`;
+}
+function renderQuiz(){
+  $("#quiz").innerHTML=Q.map(qHTML).join("");
+  $("#quiz").querySelectorAll("[data-check]").forEach(b=>b.addEventListener("click",()=>check(+b.dataset.check)));
+  $("#quiz").querySelectorAll(".order button").forEach(b=>b.addEventListener("click",()=>{
+    const i=+b.dataset.q,p=+b.dataset.p,d=+b.dataset.d; const st=state[i]; const ord=st.sel||Q[i].start.slice();
+    [ord[p],ord[p+d]]=[ord[p+d],ord[p]]; st.sel=ord; renderQuiz(); const nb=document.querySelector(`#qa-${i} .order li:nth-child(${p+d+1}) button[data-d="${d}"]`)||document.querySelector(`#qa-${i} .order li:nth-child(${p+d+1}) button`); if(nb&&!nb.disabled) nb.focus();
+  }));
+  const ok=state.filter(s=>s.firstOk).length; $("#score").textContent=`${ok}/${Q.length}`;
+  renderReview();
+}
+function check(i){
+  const it=Q[i], st=state[i]; let sel=[],ok=false;
+  if(it.type==="single"||it.type==="multi"){
+    document.querySelectorAll(`input[name=q${i}]`).forEach(x=>{if(x.checked) sel.push(+x.value);});
+    if(!sel.length) return;
+    ok=it.type==="single"?sel[0]===it.a:(sel.length===it.a.length&&it.a.every(a=>sel.includes(a)));
+  }else if(it.type==="match"){
+    sel=it.left.ru.map((_,j)=>document.getElementById(`q${i}-${j}`).value);
+    if(sel.some(v=>v==="")) return; ok=sel.every((v,j)=>+v===j);
+  }else if(it.type==="order"){
+    sel=st.sel||it.start.slice(); ok=sel.every((v,j)=>v===j);
+  }else if(it.type==="fill"){
+    sel=it.a.map((_,k)=>document.getElementById(`q${i}-${k}`).value);
+    if(sel.some(v=>v==="")) return; ok=sel.every((v,k)=>+v===it.a[k]);
+  }
+  st.sel=sel; st.done=true; st.ok=ok; if(st.firstOk===null) st.firstOk=ok;
+  renderQuiz();
+  const fb=document.querySelector(`#qa-${i} .fb`); if(fb){fb.setAttribute("tabindex","-1");fb.focus({preventScroll:false});}
+}
+function renderReview(){
+  const done=state.every(s=>s.done), r=$("#review"); r.hidden=!done; if(!done) return;
+  const wrong=[...new Set(Q.map((q,i)=>state[i].firstOk?null:q.note).filter(x=>x!==null))];
+  r.innerHTML=`<h3>${L().reviewH}</h3>`+(wrong.length?`<ul class="src" style="padding-left:18px;margin:0">`+wrong.map(n=>`<li>${L().reviewLine} ${n+1}: ${esc(NOTES[n][lang])}</li>`).join("")+`</ul>`:`<p class="src">${L().reviewNone}</p>`);
+  try{const best=+(store.get("m45-best")||0); const sc=state.filter(s=>s.firstOk).length; if(sc>best) store.set("m45-best",sc);}catch(e){}
+}
+function renderFlags(){
+  $("#flags").innerHTML=`<thead><tr><th>${L().thSev}</th><th>${L().thWhere}</th><th>${L().thWhat}</th><th>${L().thFix}</th></tr></thead><tbody>`+
+   FLAGS.map(f=>`<tr><td class="sev">${esc(f.sev[lang])}</td><td class="pg">${esc(f.where[lang])}</td><td>${esc(f.what[lang])}</td><td>${esc(f.fix[lang])}</td></tr>`).join("")+`</tbody>`;
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.lang;store.set("m45-lang",lang);renderStatic();}));
+document.querySelectorAll("[role=tab]").forEach(b=>{
+  b.addEventListener("click",()=>{tab=b.dataset.tab;renderTabs();});
+  b.addEventListener("keydown",e=>{const tabs=[...document.querySelectorAll("[role=tab]")];const k=tabs.indexOf(b);
+    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();const n=tabs[(k+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length];tab=n.dataset.tab;renderTabs();n.focus();}});
+});
+$("#reset").addEventListener("click",()=>{state.forEach(s=>{s.done=false;s.ok=false;s.firstOk=null;s.sel=null;});renderQuiz();});
+const h=location.hash.replace("#",""); if(["notes","scheme","cards","quiz","teacher"].includes(h)) tab=h;
+renderStatic();
+})();
+</script>
+
+</body></html>

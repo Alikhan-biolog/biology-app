@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Биология 8 · подготовка к ЕНТ, СОР и СОЧ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@700&display=swap">
+<style>
+:root{--bg:#F2EFF0;--surface:#fff;--ink:#1C1A22;--muted:#56525E;--line:#DCD5D8;--accent:#1F5E73;--warn:#7A5300;--warn-soft:#FBF0D6}
+@media (prefers-color-scheme:dark){:root{--bg:#17141A;--surface:#211C24;--ink:#ECE7EE;--muted:#B0A8B6;--line:#3A3240;--accent:#7EC3DA;--warn:#F1C66A;--warn-soft:#3A2F14;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "PT Sans","Segoe UI",Arial,sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding:28px 16px 48px}
+h1{font:700 clamp(28px,6vw,40px)/1.15 "PT Serif",Georgia,serif;margin:6px 0 10px}
+h2{font:700 20px "PT Serif",Georgia,serif;margin:28px 0 10px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.crumb{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.lang button{border:0;background:none;color:var(--ink);font:700 14px inherit;padding:8px 14px;min-height:40px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.draft{padding:10px 14px;border-radius:8px;background:var(--warn-soft);color:var(--warn);font-size:14px}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+a.card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;color:var(--ink);text-decoration:none}
+a.card:hover{border-color:var(--accent)}
+a.card b{display:block;font-size:17px;color:var(--accent)}
+a.card span{font-size:14px;color:var(--muted)}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer{font-size:13px;color:var(--muted);margin-top:32px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="crumb" data-t="crumb"></div>
+    <div class="lang"><button data-l="ru">RU</button><button data-l="kk">ҚАЗ</button></div></div>
+  <h1 data-t="h1"></h1>
+  <p data-t="lede"></p>
+  <p class="draft" data-t="draft"></p>
+  <div class="big">
+    <a class="card" href="trainer.html"><b data-t="trT"></b><span data-t="trS"></span></a>
+    <a class="card" href="bank.html"><b data-t="bkT"></b><span data-t="bkS"></span></a>
+  </div>
+  <h2 data-t="modH"></h2>
+  <ul id="mods"></ul>
+  <footer data-t="foot"></footer>
+</div>
+<script>
+const M=[["8-17-krov","§17","Состав и функции крови","Қанның құрамы мен қызметі"],
+["8-18-immunitet","§18","Иммунитет гуморальный и клеточный","Гуморальдық және жасушалық иммунитет"],
+["8-20-vidy-immuniteta","§20","Виды иммунитета","Иммунитет түрлері"],
+["8-21-gruppy-krovi","§21","Группы крови. Резус-фактор","Қан топтары. Резус-фактор"],
+["8-22-serdce-sosudy","§22","Сердце и сосуды животных","Жануарлардың жүрегі мен қан тамырлары"],
+["8-23-krugi","§23","Круги кровообращения","Қан айналым шеңберлері"],
+["8-24-bolezni","§24","Заболевания сердечно-сосудистой системы","Жүрек-қан тамырлары жүйесінің аурулары"],
+["8-45-mitoz-meioz","§45","Митоз и мейоз","Митоз және мейоз"],
+["8-50-nasledstvennost","§50","Наследственность и изменчивость","Тұқымқуалаушылық және өзгергіштік"]];
+const T={ru:{crumb:"Биология · 8 класс",h1:"Биология 8: учебные модули и тренажёр",lede:"Конспекты, схемы, карточки и задания по учебнику «Биология 8» (Атамұра, 2018) на русском и казахском языках.",draft:"Пилотная версия. Все задания составлены ИИ и ещё не утверждены учителем. Официальных заданий ЕНТ здесь нет.",trT:"Тренажёр",trS:"Пробный тест и тренировка по всем темам",bkT:"Банк заданий",bkS:"Все задания, термины и замечания к учебнику (для учителя)",modH:"Модули по параграфам",foot:"Учебный проект. Материалы — черновики для проверки учителем."},
+ kk:{crumb:"Биология · 8-сынып",h1:"Биология 8: оқу модульдері мен жаттықтырғыш",lede:"«Биология 8» оқулығы (Атамұра, 2018) бойынша қысқаша мазмұн, сызбалар, карточкалар мен тапсырмалар — қазақ және орыс тілдерінде.",draft:"Сынақ нұсқасы. Барлық тапсырманы ЖИ құрастырды, олар әлі мұғаліммен бекітілмеген. Мұнда ҰБТ-ның ресми тапсырмалары жоқ.",trT:"Жаттықтырғыш",trS:"Барлық тақырып бойынша сынақ тест және жаттығу",bkT:"Тапсырмалар банкі",bkS:"Барлық тапсырма, термин және оқулыққа ескертулер (мұғалімге)",modH:"Параграфтар бойынша модульдер",foot:"Оқу жобасы. Материалдар — мұғалім тексеруіне арналған жоба."}};
+let lang="ru"; try{const s=localStorage.getItem("home-lang"); if(s==="kk") lang="kk";}catch(e){}
+function r(){document.documentElement.lang=lang;document.querySelectorAll("[data-t]").forEach(e=>e.textContent=T[lang][e.dataset.t]);
+ document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+ document.getElementById("mods").innerHTML=M.map(m=>`<li><a class="card" href="modules/${m[0]}.html"><b>${m[1]}</b><span>${lang==="ru"?m[2]:m[3]}</span></a></li>`).join("");}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("home-lang",lang)}catch(e){}r();});
+r();
+</script>
+</body>
+</html>
